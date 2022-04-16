@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" #search placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" (click)="doSearch(search.value)" type="button">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <div>
+                <img class="img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/98146147?v=4" alt="ian">
+            </div>
+          </div>
+          <div class="col-1"></div>
+          <div class="col-md-7">
+            <div class="row">
+                <h2>My Repositories</h2>
+                <div class="col-md-6">
+                    1
+                </div>
+                <div class="col-md-6">
+                    2
+                </div>
+                <div class="col-md-6">
+                    3
+                </div>
+                <div class="col-md-6">
+                    4
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
