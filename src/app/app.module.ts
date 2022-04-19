@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
+import { SearchServiceService } from './services/search-service.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MainComponent } from './components/main/main.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SearchServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
