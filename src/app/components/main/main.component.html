@@ -16,10 +16,10 @@
             <a class="nav-link" href="#">Contact</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" (keypress.enter)="doSearch(search.value)" type="search" #search placeholder="Search" aria-label="Search">
+        <div class="d-flex">
+          <input class="form-control me-2" (keyup.enter)="doSearch(search.value)" type="search" #search placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" (click)="doSearch(search.value)" type="button">Search</button>
-        </form>
+        </div>
       </div>
     </div>
   </nav>
@@ -28,22 +28,26 @@
 
   <div class="container">
       <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 text-center">
             <div>
                 <img class="img-fluid rounded-circle" src="{{ searchService.ghUser.avatar_url }}" alt="ian">
+            </div>
+            <div>
+              <h3>{{ searchService.ghUser.name }}</h3>
+              <p><a href="{{ searchService.ghUser.html_url }}" target="_blank">@{{ searchService.ghUser.login }}</a></p>
+              <p>{{ searchService.ghUser.bio }}</p>
             </div>
           </div>
           <div class="col-1"></div>
           <div class="col-md-7">
             <div class="row">
                 <h2>My Repositories</h2>
-                <div *ngIf="search.value == ''" class="col-md-6">
-                    <h4>hhhhh</h4>
-                    <p>ppppp</p>
-                </div>
-                <div *ngFor="let repo of searchService.results" class="col-md-6">
-                    <h4>{{ repo.name }}</h4>
-                    <p>{{ repo.owner.login }}</p>
+                <div *ngFor="let repo of searchService.results" class="col-md-5 m-1 bg-light" style="word-break: break-all;">
+                    <h4><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></h4>
+                    <p>{{ repo.description }}</p>
+                    <p class="text-danger">{{ repo.topics }}</p>
+                    <p> <i class="fa fa-star"></i> {{ repo.stargazers_count }} &nbsp;&nbsp; <i class="fa-solid fa-code-fork"></i> {{ repo.forks_count }}</p>
+                    <p><em>Created: {{ repo.created_at | date }}</em></p>
                 </div>
             </div>
           </div>
