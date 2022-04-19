@@ -17,7 +17,7 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" #search placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" (keypress.enter)="doSearch(search.value)" type="search" #search placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" (click)="doSearch(search.value)" type="button">Search</button>
         </form>
       </div>
@@ -30,24 +30,20 @@
       <div class="row">
           <div class="col-md-4">
             <div>
-                <img class="img-fluid rounded-circle" src="https://avatars.githubusercontent.com/u/98146147?v=4" alt="ian">
+                <img class="img-fluid rounded-circle" src="{{ searchService.ghUser.avatar_url }}" alt="ian">
             </div>
           </div>
           <div class="col-1"></div>
           <div class="col-md-7">
             <div class="row">
                 <h2>My Repositories</h2>
-                <div class="col-md-6">
-                    1
+                <div *ngIf="search.value == ''" class="col-md-6">
+                    <h4>hhhhh</h4>
+                    <p>ppppp</p>
                 </div>
-                <div class="col-md-6">
-                    2
-                </div>
-                <div class="col-md-6">
-                    3
-                </div>
-                <div class="col-md-6">
-                    4
+                <div *ngFor="let repo of searchService.results" class="col-md-6">
+                    <h4>{{ repo.name }}</h4>
+                    <p>{{ repo.owner.login }}</p>
                 </div>
             </div>
           </div>
