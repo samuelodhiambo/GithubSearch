@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  githubSeachAPIKey: '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',
 };
