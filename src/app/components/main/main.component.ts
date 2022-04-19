@@ -15,10 +15,12 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchService.searchUser('samuelodhiambo')
+    this.searchService.search('samuelodhiambo')
   }
 
   doSearch (term: string) {
     this.searchService.search(term)
+    this.searchService.searchUser(term)
   }
 
 }
