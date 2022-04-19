@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchServiceService } from 'src/app/services/search-service.service';
 
 @Component({
   selector: 'app-main',
@@ -8,13 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   title = 'Github Search'
 
-  constructor() { }
+  constructor(public searchService: SearchServiceService) { 
+    this.title = 'Github Search'
+  }
 
   ngOnInit(): void {
+    this.searchService.searchUser('samuelodhiambo')
   }
 
   doSearch (term: string) {
-    console.log(term)
+    this.searchService.search(term)
   }
 
 }
